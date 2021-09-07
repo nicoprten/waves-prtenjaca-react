@@ -1,0 +1,12 @@
+.nav__icon__carrito{
+    background-image: url('./carrito.png');
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin-left: 20px;
+    text-indent: 10000px;
+}
+.nav__icon__carrito:hover{
+    background-image: url('./carritoblanco.png');
+    transition: 0.5s;
+}

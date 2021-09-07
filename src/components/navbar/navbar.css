@@ -7,17 +7,19 @@
     align-items: center;
     justify-content: space-between;
 }
-.nav__img{
-    margin-left: 20px;
-}
 .nav__list{
     list-style: none;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 .nav__item{
     width: 100px;
     text-align: center;
+}
+.nav__link__logo{
+    width: 40px;
+    margin-left: 20px;
 }
 .nav__link{
     text-decoration: none;

@@ -1,0 +1,10 @@
+.item{
+    width:300px;
+    text-align: center;
+    border: 2px solid black;
+    box-shadow: 0 0 16px 0 rgba(0,0,0,0.45);
+    margin: 10px;
+}
+.item__img{
+    width:240px;
+}
