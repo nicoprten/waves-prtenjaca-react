@@ -1,0 +1,49 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+.contador{
+    padding: 10px;
+    background-color: rgb(18, 18, 18);
+}
+.contador__botones{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contador__button{
+    padding: 5px;
+    background-color: rgb(18, 18, 18);
+    border: none;
+    border-radius: 50%;
+}
+.contador__button ion-icon{
+    color: white;
+}
+.contador__input{
+    width: 20%;
+    font-size: 1.2em;
+    text-align: center;
+    height: 100%;
+}
+.invalido{
+    background-color: rgb(141, 29, 29);
+    color: white;
+}
+.contador__add{
+    padding: 10px;
+    background-color: white;
+    color: rgb(18, 18, 18);
+    border: none;
+    border-radius: 5px;
+    font: bold 1em 'Helvetica';
+    margin-top: 10px;
+}
+.contador__add:hover{
+    background-color: rgb(18, 18, 18);
+    color: white;
+    cursor: pointer;
+    outline: 2px solid white;
+    box-sizing: border-box;
+}
