@@ -1,3 +1,4 @@
+$fondoNegro: rgb(18, 18, 18);
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button{
     -webkit-appearance: none;
@@ -5,7 +6,7 @@ input::-webkit-inner-spin-button{
 }
 .contador{
     padding: 10px;
-    background-color: rgb(18, 18, 18);
+    background-color: $fondoNegro;
 }
 .contador__botones{
     display: flex;
@@ -14,7 +15,7 @@ input::-webkit-inner-spin-button{
 }
 .contador__button{
     padding: 5px;
-    background-color: rgb(18, 18, 18);
+    background-color: $fondoNegro;
     border: none;
     border-radius: 50%;
 }
@@ -34,14 +35,14 @@ input::-webkit-inner-spin-button{
 .contador__add{
     padding: 10px;
     background-color: white;
-    color: rgb(18, 18, 18);
+    color: $fondoNegro;
     border: none;
     border-radius: 5px;
     font: bold 1em 'Helvetica';
     margin-top: 10px;
 }
 .contador__add:hover{
-    background-color: rgb(18, 18, 18);
+    background-color: $fondoNegro;
     color: white;
     cursor: pointer;
     outline: 2px solid white;
