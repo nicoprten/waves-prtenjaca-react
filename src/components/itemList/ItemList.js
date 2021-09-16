@@ -20,20 +20,22 @@ function ItemList(){
             desc: 'Preparate para el frio con el mejor gorro.'
         }
     ];
+    // console.log(productos)
     return(
         <>
             <h2>Lista de productos</h2>
-            {productos.map((producto) => {
-                    return(
-                        <Item 
-                        key={producto.id}
-                        nombre={producto.nombre}
-                        precio={producto.precio}
-                        desc={producto.desc}/>
-                    )
-                })}
-
-            />
+            <div className='listado'>
+                {productos?.map((producto) => {
+                        return(
+                            <Item 
+                            key={producto.id}
+                            nombre={producto.nombre}
+                            precio={producto.precio}
+                            desc={producto.desc}
+                            />
+                        )
+                    })}
+            </div>
         </>
     );
 }
