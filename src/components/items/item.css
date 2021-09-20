@@ -3,6 +3,7 @@ h2{
 }
 .listado{
     display: flex;
+    justify-content: center;
 }
 .item{
     width:300px;

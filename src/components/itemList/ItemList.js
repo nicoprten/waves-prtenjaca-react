@@ -24,6 +24,9 @@ function ItemList(){
         }
     ];
     // console.log(productos)
+
+    
+
     return(
         <>
             <h2>Lista de productos</h2>

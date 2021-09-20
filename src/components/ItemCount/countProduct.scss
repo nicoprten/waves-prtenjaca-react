@@ -4,6 +4,9 @@ input::-webkit-inner-spin-button{
     -webkit-appearance: none;
     margin: 0;
 }
+
+// CONTADOR
+
 .contador{
     padding: 10px;
     background-color: $fondoNegro;
@@ -47,4 +50,98 @@ input::-webkit-inner-spin-button{
     cursor: pointer;
     outline: 2px solid white;
     box-sizing: border-box;
+}
+
+// LISTADO DE Productos
+
+.listado{
+    list-style: none;
+    display: flex;
+    .listado__productos{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex-grow: 1;
+        margin: 20px 100px;
+        .listado__title{
+
+        }
+        .listado__img{
+            max-width: 300px;
+        }
+        .listado__precio{
+
+        }
+        .listado__button{
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 6px;
+            padding: 10px;
+        }
+        .listado__button:hover{
+            cursor: pointer;
+            background-color: black;
+            border: 2px solid white;
+            color: white;
+            transition: 0.3s;
+            box-shadow: 0 0 10px black;
+        }
+    }
+}
+
+// DETALLES DE LOS PRODUCTOS
+
+.detalles{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: center;
+    .detalles__producto{
+        position: relative;
+        border: 2px solid black;
+        text-align: center;
+        padding: 10px;
+        border-radius: 6px;
+        box-shadow: 0 0 10px black;
+        margin: 10px;
+        .detalles__title{
+            font: bold 1.2em "Helvetica Neue",Helvetica,Arial;
+        }
+        .detalles__img{
+            max-width: 400px;
+        }
+        .detalles__desc{
+            background-color: rgb(20, 20, 20);
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+        .detalles__precio{
+            background-color: white;
+            border-radius: 10px;
+            color: rgb(20, 20, 20);
+            padding: 10px;
+            display: inline-block;
+            margin: 0 6px;
+            font: italic 13px 'Helvetica';
+            position: absolute;
+            bottom: 13px;
+            right: 20px;
+        }
+        .detalles__button{
+            padding: 10px;
+            background-color: white;
+            color: $fondoNegro;
+            border: 2px solid white;
+            border-radius: 5px;
+            font: bold 1em 'Helvetica';
+            margin-top: 10px;
+        }
+        .detalles__button:hover{
+            cursor: pointer;
+            border: 2px solid black;
+            box-shadow: 0 0 10px black;
+        }
+    }
 }
