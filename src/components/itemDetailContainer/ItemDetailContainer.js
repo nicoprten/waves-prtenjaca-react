@@ -24,7 +24,7 @@ function ItemDetailContainer(){
         <ul className='listado'>
             {productos?.map((producto) =>{
                 return (
-                    <div className='listado__productos'>
+                    <div key={producto.id} className='listado__productos'>
                         <li className='listado__title'>{producto.nombre}</li>
                         <li ><img className='listado__img' src={producto.srcimg} alt={producto.nombre}/></li>
                         <li className='listado__precio'>${producto.precio}</li>

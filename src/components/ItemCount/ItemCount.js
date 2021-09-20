@@ -26,7 +26,7 @@ function CountProduct({stock, initial}){
         <div className='contador'>
             <div className='contador__botones'>
                 <button onClick={() => restar(number)} className='contador__button' type='button'><ion-icon size='large'    name="chevron-down-circle-outline"></ion-icon></button>
-                <input className='contador__input' className= {clase} type='number' value={number} onChange={()=>{console.log('no funciona esto')}}/>
+                <input className='contador__input' className= {clase} type='number' value={number} onChange={()=>{}}/>
                 <button onClick={() => sumar(number)} className='contador__button'  type='button'><ion-icon size='large' name="chevron-up-circle-outline"></ion-icon></button>
             </div>
             <button className='contador__add' onClick={() => addProduct()}>AGREGAR AL CARRITO</button>

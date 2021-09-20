@@ -1,7 +1,6 @@
 import './item.css'
-import CountProduct from '../ItemCount/ItemCount.js';
 import ItemList from '../itemList/ItemList.js';
-function ItemListContainer({}){
+function ItemListContainer(){
     return(
         <ItemList/>
     );

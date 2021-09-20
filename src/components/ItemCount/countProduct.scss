@@ -4,6 +4,7 @@ input::-webkit-inner-spin-button{
     -webkit-appearance: none;
     margin: 0;
 }
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap');
 
 // CONTADOR
 
@@ -57,15 +58,15 @@ input::-webkit-inner-spin-button{
 .listado{
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
     .listado__productos{
         text-align: center;
         display: flex;
         flex-direction: column;
         gap: 10px;
-        flex-grow: 1;
         margin: 20px 100px;
         .listado__title{
-
+            font: bold 1.3em 'Lora';
         }
         .listado__img{
             max-width: 300px;
@@ -106,7 +107,7 @@ input::-webkit-inner-spin-button{
         box-shadow: 0 0 10px black;
         margin: 10px;
         .detalles__title{
-            font: bold 1.2em "Helvetica Neue",Helvetica,Arial;
+            font: bold 1.2em 'Lora';
         }
         .detalles__img{
             max-width: 400px;
