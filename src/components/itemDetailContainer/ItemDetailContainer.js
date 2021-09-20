@@ -10,6 +10,7 @@ function ItemDetailContainer(){
             fetch(link)
             .then(response =>response.json())
             .then(data => setProductos(data));
+            // .then(data => setProductos(data.filter((producto)=>{producto.id === 1})));
         }, 2000)
     }, []);
     // console.log(productos, 'xd')
@@ -26,7 +27,7 @@ function ItemDetailContainer(){
                 return (
                     <div key={producto.id} className='listado__productos'>
                         <li className='listado__title'>{producto.nombre}</li>
-                        <li ><img className='listado__img' src={producto.srcimg} alt={producto.nombre}/></li>
+                        <li><img className='listado__img' src={producto.srcimg} alt={producto.nombre}/></li>
                         <li className='listado__precio'>${producto.precio}</li>
                         <button className='listado__button' onClick={()=>verDetalle(producto)}>VER DETALLES</button>
                     </div>

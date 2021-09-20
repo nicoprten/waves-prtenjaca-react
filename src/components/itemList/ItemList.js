@@ -33,7 +33,6 @@ function ItemList(){
             <div className='listado'>
                 {productos?.map((producto) => {
                         return(
-                            <>
                                 <Item 
                                 key={producto.id}
                                 nombre={producto.nombre}
@@ -41,7 +40,6 @@ function ItemList(){
                                 srcimg={producto.srcimg}
                                 desc={producto.desc}
                                 />
-                            </>
                         )
                     })}
             </div>

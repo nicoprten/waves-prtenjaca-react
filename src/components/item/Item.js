@@ -20,7 +20,7 @@ function Item(producto){
                     <h2 className='item__title' >{result.nombre}</h2>
                     <p className='item__precio'>${result.precio}</p>
                     <img className='item__img' src={result.srcimg} alt={result.desc}/>
-                    <ItemCount stock={8} initial={0}/>
+                    <ItemCount stock={8} initial={1}/>
                 </div>
             );
         })
@@ -32,7 +32,7 @@ function Item(producto){
         //     const productos = await agarrarProductos(producto);
         //     // console.log(productos);
         // }
-    }, []);
+    }, [producto]);
 
     return(
         <>
