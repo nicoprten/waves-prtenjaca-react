@@ -20,7 +20,6 @@ function CountProduct({stock, initial}){
             <div className='contador__botones'>
                 <button onClick={() => restar(number)} className='contador__button' type='button'><ion-icon size='large'    name="chevron-down-circle-outline"></ion-icon></button>
                 <input className={(number >= stock || number === 0) ? 'contador__input invalido' : 'contador__input none'}
-                // {(number > stock) ? className='contador__input none' : className='contador__input invalido'} 
                 type='number' value={number} onChange={()=>{}}/>
                 <button onClick={() => sumar(number)} className='contador__button'  type='button'><ion-icon size='large' name="chevron-up-circle-outline"></ion-icon></button>
             </div>
