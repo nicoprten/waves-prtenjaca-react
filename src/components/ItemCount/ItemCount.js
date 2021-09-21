@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './countProduct.scss';
+import './css/style.scss';
 function CountProduct({stock, initial}){
     const [number, setNumber] = useState(initial);
     function restar(){

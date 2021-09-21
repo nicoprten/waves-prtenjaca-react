@@ -4,12 +4,15 @@ import ItemDetail from '../itemDetail/ItemDetail.js';
 function ItemDetailContainer(){
     const [productos, setProductos] = useState([]);
     const [itemDetail, setItemDetail] = useState([]);
+    const [cargando, setCargando] = useState(false);
     useEffect(() => {
+        setCargando(true);
         const link = 'http://localhost:3001/products';
         setTimeout(()=>{
             fetch(link)
             .then(response =>response.json())
-            .then(data => setProductos(data));
+            .then(data => setProductos(data))
+            .finally(()=> setCargando(false));
             // .then(data => setProductos(data.filter((producto)=>{producto.id === 1})));
         }, 2000)
     }, []);
@@ -21,7 +24,8 @@ function ItemDetailContainer(){
     
     return(
     <>
-        <h2>Productos detallados</h2>
+        <h2>Productos</h2>
+        {(cargando) && <p className='cargando'>Cargando listado de productos.</p>}
         <ul className='listado'>
             {productos?.map((producto) =>{
                 return (

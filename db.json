@@ -5,6 +5,7 @@
         {"id": 2, "nombre": "Pantalon Cargo", "precio": 1600, "srcimg" : "//d3ugyf2ht6aenh.cloudfront.net/stores/121/284/products/pantalon_ai_bordado111-840ae6036c78d37aa716263754206574-1024-1024.png", "desc": "Muy comodos para salir a correr."
         }, 
         {"id": 3, "nombre": "Gorro de lana Enlighted", "precio": 1300, "srcimg" : "//d3ugyf2ht6aenh.cloudfront.net/stores/121/284/products/beanie-logo21-2a1cf6b7a8e808eb9416276009088444-1024-1024.png", "desc": "Preparate para el frio con el mejor gorro."
-        }
+        },
+        {"id": 4, "nombre": "Remera Limited", "precio": 2200, "srcimg": "//d3ugyf2ht6aenh.cloudfront.net/stores/121/284/products/remera_hands11-a45719cdac4674aa9c16308894368618-1024-1024.png", "desc": "Remera limitada 100% algodon"}
     ]
   }
