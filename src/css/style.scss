@@ -1,4 +1,5 @@
 $fondoNegro: rgb(18, 18, 18);
+$amarillo: rgb(251, 219, 0);
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button{
     -webkit-appearance: none;
@@ -26,11 +27,13 @@ h2{
     justify-content: space-around;
     margin: 20px;
     text-align: center;
+    width: 80%;
+    margin: 0 auto;
     .data__instru{
         background-color: rgb(18, 18, 18);
         padding: 20px;
         border-radius: 20px;
-        width: 40%;
+        width: 30%;
         box-shadow: 0 0 10px black;
         margin: 20px 0;
         display: flex;
@@ -99,6 +102,10 @@ h2{
         display: flex;
         flex-direction: column;
         gap: 10px;
+        border: 2px solid black;
+        border-radius: 10px;
+        box-shadow: 0 0 10px black;
+        padding: 14px;
         .listado__title{
             font: bold 1.3em 'Lora';
         }
@@ -113,6 +120,9 @@ h2{
             border: 2px solid black;
             border-radius: 6px;
             padding: 10px;
+            text-decoration: none;
+            color: black;
+            display: inline-block;
         }
         .listado__button:hover{
             cursor: pointer;
@@ -142,6 +152,13 @@ h2{
     flex-wrap: wrap;
     list-style: none;
     justify-content: center;
+    .detalles__error{
+        padding: 20px;
+        background-color:rgb(18,18,18);
+        color: white;
+        border-radius: 10px;
+        margin: 25% 0;
+    }
     .detalles__producto{
         position: relative;
         border: 2px solid black;
@@ -163,7 +180,7 @@ h2{
             text-align: left;
         }
         .detalles__precio{
-            background-color: white;
+            background-color: $amarillo;
             border-radius: 10px;
             color: rgb(20, 20, 20);
             padding: 10px;
@@ -171,8 +188,9 @@ h2{
             margin: 0 6px;
             font: italic 13px 'Helvetica';
             position: absolute;
-            bottom: 13px;
+            top: 13px;
             right: 20px;
+            box-shadow: 0 0 10px black;
         }
         .detalles__button{
             padding: 10px;
