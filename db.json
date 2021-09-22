@@ -6,9 +6,13 @@
         }, 
         {"id": 3, "nombre": "Gorro de lana Enlighted", "precio": 1300, "srcimg" : "//d3ugyf2ht6aenh.cloudfront.net/stores/121/284/products/beanie-logo21-2a1cf6b7a8e808eb9416276009088444-1024-1024.png", "desc": "Preparate para el frio con el mejor gorro.", "categoria": "abrigos"
         },
-        {"id": 4, "nombre": "Remera Limited", "precio": 2200, "srcimg": "//d3ugyf2ht6aenh.cloudfront.net/stores/121/284/products/remera_hands11-a45719cdac4674aa9c16308894368618-1024-1024.png", "desc": "Remera limitada 100% algodon", "categoria": "remeras"},
-        {"id": 5, "nombre": "Remera Roja", "precio": 1700, "srcimg": "//d3ugyf2ht6aenh.cloudfront.net/stores/121/284/products/remera_bodylaser11-822909182b47b6ddc616308900458375-480-0.png", "desc": "Remera estampa roja, new design.", "categoria": "remeras"},
-        {"id": 6, "nombre": "Buzo canguro E-Rojo", "precio": 2700, "srcimg": "//d3ugyf2ht6aenh.cloudfront.net/stores/121/284/products/buzo_bodylaser11-b5dedcc696bb4ed32816308923210865-480-0.png", "desc": "Abrigadisimo para los dias de frío.", "categoria": "abrigos"},
-        {"id": 7, "nombre": "Pantalon de vestir L-3", "precio": 2000, "srcimg": "//d3ugyf2ht6aenh.cloudfront.net/stores/121/284/products/jean_negro11-d1854778103d37105716137391738325-480-0.png", "desc": "Pantalon de vestir ultima moda", "categoria": "pantalones"}
+        {"id": 4, "nombre": "Remera Limited", "precio": 2200, "srcimg": "//d3ugyf2ht6aenh.cloudfront.net/stores/121/284/products/remera_hands11-a45719cdac4674aa9c16308894368618-1024-1024.png", "desc": "Remera limitada 100% algodon", "categoria": "remeras"
+        },
+        {"id": 5, "nombre": "Remera Roja", "precio": 1700, "srcimg": "//d3ugyf2ht6aenh.cloudfront.net/stores/121/284/products/remera_bodylaser11-822909182b47b6ddc616308900458375-480-0.png", "desc": "Remera estampa roja, new design.", "categoria": "remeras"
+        },
+        {"id": 6, "nombre": "Buzo canguro E-Rojo", "precio": 2700, "srcimg": "//d3ugyf2ht6aenh.cloudfront.net/stores/121/284/products/buzo_bodylaser11-b5dedcc696bb4ed32816308923210865-480-0.png", "desc": "Abrigadisimo para los dias de frío.", "categoria": "abrigos"
+        },
+        {"id": 7, "nombre": "Pantalon de vestir L-3", "precio": 2000, "srcimg": "//d3ugyf2ht6aenh.cloudfront.net/stores/121/284/products/jean_negro11-d1854778103d37105716137391738325-480-0.png", "desc": "Pantalon de vestir ultima moda", "categoria": "pantalones"
+        }
     ]
   }
