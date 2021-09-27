@@ -47,6 +47,9 @@ h2{
 .contador{
     padding: 10px;
     background-color: $fondoNegro;
+    display: flex;
+    flex-direction: column;
+
 }
 .contador__botones{
     display: flex;
@@ -79,7 +82,7 @@ h2{
     border: none;
     border-radius: 5px;
     font: bold 1em 'Helvetica';
-    margin-top: 10px;
+    margin-top: 10;
 }
 .contador__add:hover{
     background-color: $fondoNegro;
@@ -112,9 +115,9 @@ h2{
         .listado__img{
             max-width: 300px;
         }
-        .listado__precio{
+        // .listado__precio{
 
-        }
+        // }
         .listado__button{
             background-color: white;
             border: 2px solid black;
@@ -142,10 +145,15 @@ h2{
     border-radius: 10px;
     text-align: center;
     width: 50%;
-    margin: 0 auto;
+    margin: 30px auto;
 }
 
 // DETALLES DE LOS PRODUCTOS
+.total__detalles{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .detalles{
     display: flex;

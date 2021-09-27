@@ -28,7 +28,7 @@ function ItemDetailContainer(){
             });
         }, 400)
     }, [categoryId]);
-    // console.log(productos)  PORQUE SE MUESTRA 2 VECES??
+    // console.log(productos)  POR QUE SE MUESTRA 2 VECES??
   
     // console.log(productos, 'xd')
     // function verDetalle(producto){

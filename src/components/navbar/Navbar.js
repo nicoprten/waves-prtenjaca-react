@@ -24,7 +24,9 @@ const Navbar = () => {
                 <li className='nav__item'>
                     <Link to='/category/pantalones' className='nav__link'>Pantalones</Link>
                 </li>
-                <li className='nav__item'><CartWidget/></li>
+                <li className='nav__item'>
+                    <CartWidget/>
+                </li>
             </ul>
         </div>
     );
