@@ -11,12 +11,10 @@ import {CartContext} from './context/CartContext.js';
 import {useState} from 'react';
 
 function App() {
-  const [themeColor, setThemeColor] = useState('red');
-  if(themeColor === 'red'){
-    setThemeColor('blueee');
-  }
+  const [products, setProducts] = useState([]);
+
   return (
-    <CartContext.Provider value={themeColor}>
+    <CartContext.Provider value={products}>
       <BrowserRouter>
         <Navbar />
         <Switch>

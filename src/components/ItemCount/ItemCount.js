@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function CountProduct({stock, initial, agregarCarrito}){
+function CountProduct({stock, initial, agregarCarrito, producto}){
     const [number, setNumber] = useState(initial);
     function restar(){
         if (number > 1){
@@ -12,6 +12,8 @@ function CountProduct({stock, initial, agregarCarrito}){
             setNumber(number + 1);
         }
     }
+
+
     return(
         <div className='contador'>
             <div className='contador__botones'>
@@ -20,7 +22,7 @@ function CountProduct({stock, initial, agregarCarrito}){
                 type='number' value={number} onChange={()=>{}}/>
                 <button onClick={() => sumar(number)} className='contador__button'  type='button'><ion-icon size='large' name="chevron-up-circle-outline"></ion-icon></button>
             </div>
-            <button className='contador__add' onClick={(e) => agregarCarrito(e, number)}>AGREGAR AL CARRITO</button>
+            <button className='contador__add' onClick={() => agregarCarrito(producto, number)}>AGREGAR AL CARRITO</button>
         </div>
     );
 }

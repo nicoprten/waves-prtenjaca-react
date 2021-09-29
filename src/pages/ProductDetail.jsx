@@ -2,11 +2,23 @@ import {useEffect, useState} from 'react';
 import {useParams} from 'react-router';
 import {Link} from 'react-router-dom';
 import CountProduct from '../components/itemCount/ItemCount.js';
+import {useContext} from 'react';
+import {CartContext} from '../context/CartContext.js';
+import {createContext} from 'react';
 
 function ProductDetail(){
     const [product, setProduct] = useState([]);
     const [cantProd, setCantProd] = useState(0);
     const {id} = useParams();
+    const CartContext = createContext([]);
+    const [cart, setCart] = useState([]);
+    const addItem = (item, quantity) => {
+        const newItem = {item, quantity};
+        console.log(newItem);
+        setCart((prevState) => prevState.push(newItem));
+        console.log(cart);
+    }
+
     useEffect(()=>{
         try{
             console.log(id);
@@ -24,11 +36,6 @@ function ProductDetail(){
         // .catch(error=>{console.log(`Hubo un error: ${error}`)});
     }, [id]);
 
-    function agregarCarrito(e, cantidad){
-        console.log(e);
-        console.log(cantidad);
-        setCantProd(cantidad);
-    }
 
     return(
         <>
@@ -45,7 +52,7 @@ function ProductDetail(){
                     </div>
                     }
                 </ul>
-                <CountProduct stock={8} initial={1} agregarCarrito={agregarCarrito}/>
+                <CountProduct stock={8} initial={1} agregarCarrito={addItem} producto={product}/>
             </div>
         </>
     )

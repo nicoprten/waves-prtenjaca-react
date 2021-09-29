@@ -1,4 +1,4 @@
 import * as React from 'react';
 
-export const CartContext = React.createContext('blue');
+export const CartContext = React.createContext([]);
 
