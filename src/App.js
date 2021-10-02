@@ -7,14 +7,12 @@ import Products from './pages/Products.jsx';
 import Home from './pages/Home.jsx';
 import NotFound from './pages/NotFound.jsx';
 import {Switch, BrowserRouter, Route} from 'react-router-dom';
-import {CartContext} from './context/CartContext.js';
-import {useState} from 'react';
+import {CartProvider} from './context/CartContext.js';
 
 function App() {
-  const [products, setProducts] = useState([]);
 
   return (
-    <CartContext.Provider value={products}>
+    <CartProvider>
       <BrowserRouter>
         <Navbar />
         <Switch>
@@ -27,7 +25,7 @@ function App() {
         </Switch>
         <Footer />
       </BrowserRouter>
-    </CartContext.Provider>
+    </CartProvider>
   );
 }
 

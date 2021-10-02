@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
+import CartContext from '../../context/CartContext.js';
 
-function CountProduct({stock, initial, agregarCarrito, producto}){
+function CountProduct({stock, initial, item}){
     const [number, setNumber] = useState(initial);
     function restar(){
         if (number > 1){
@@ -13,7 +14,7 @@ function CountProduct({stock, initial, agregarCarrito, producto}){
         }
     }
 
-
+    const {addItem} = React.useContext(CartContext);
     return(
         <div className='contador'>
             <div className='contador__botones'>
@@ -22,7 +23,7 @@ function CountProduct({stock, initial, agregarCarrito, producto}){
                 type='number' value={number} onChange={()=>{}}/>
                 <button onClick={() => sumar(number)} className='contador__button'  type='button'><ion-icon size='large' name="chevron-up-circle-outline"></ion-icon></button>
             </div>
-            <button className='contador__add' onClick={() => agregarCarrito(producto, number)}>AGREGAR AL CARRITO</button>
+            <button className='contador__add' onClick={(e) => addItem(item, number)}>AGREGAR AL CARRITO</button>
         </div>
     );
 }

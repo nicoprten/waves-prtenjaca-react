@@ -4,11 +4,9 @@ import {useParams} from 'react-router';
 
 function ItemDetailContainer(){
     const [productos, setProductos] = useState([]);
-    // const [itemDetail, setItemDetail] = useState([]);
     const [cargando, setCargando] = useState(false);
     const {categoryId} = useParams();
-    
-    // console.log(categoryId);
+
     useEffect(() => {
         
         setCargando(true);
@@ -28,13 +26,6 @@ function ItemDetailContainer(){
             });
         }, 400)
     }, [categoryId]);
-    // console.log(productos)  POR QUE SE MUESTRA 2 VECES??
-  
-    // console.log(productos, 'xd')
-    // function verDetalle(producto){
-        // console.log(producto);
-    //     setItemDetail(producto);
-    // }
     return(
     <>
         <h2>Productos</h2>
@@ -60,9 +51,6 @@ function ItemDetailContainer(){
                 );
             })}
         </ul>
-        {/* <ItemDetail 
-        producto={itemDetail}
-        /> */}
     </>
     );
 }
