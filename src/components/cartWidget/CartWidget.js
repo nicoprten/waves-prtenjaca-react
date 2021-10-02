@@ -9,7 +9,7 @@ const CartWidget = () =>{
         <>
             <Link to='/cart' className='nav__link'> 
                 <span className='nav__icon__carrito'>Carrito</span> 
-                <span>{productsCart.length}</span>
+                <span className='nav__icon__cant'>{productsCart.length}</span>
             </Link>
 
         </>

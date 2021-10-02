@@ -41,7 +41,6 @@ function ItemDetailContainer(){
                             </Link>
                         </li>
                         <li className='listado__precio'>${producto.precio}</li>
-                        {/* <button className='listado__button' onClick={()=>verDetalle(producto)}>VER DETALLES</button> */}
                         <li>
                             <Link to={`/products/${producto.id}`} className='listado__button'>
                                 <span>VER MÁS DETALLES</span>

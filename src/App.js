@@ -5,6 +5,7 @@ import Footer from './components/footer/Footer.jsx';
 import ProductDetail from './pages/ProductDetail.jsx';
 import Products from './pages/Products.jsx';
 import Home from './pages/Home.jsx';
+import CartProducts from './pages/CartProducts.jsx';
 import NotFound from './pages/NotFound.jsx';
 import {Switch, BrowserRouter, Route} from 'react-router-dom';
 import {CartProvider} from './context/CartContext.js';
@@ -21,6 +22,7 @@ function App() {
               <Route exact path='/products/:id' component={ProductDetail}/>
               <Route exact path='/category' component={Products}/>
               <Route exact path='/category/:categoryId' component={Products}/>
+              <Route exact path='/cart' component={CartProducts}/>
               <Route path='*' component={NotFound}/>
         </Switch>
         <Footer />
