@@ -6,7 +6,6 @@ export const CartProvider = ({children}) => {
     const [productsCart, setProductsCart] = React.useState([]);
 
     const isInCart = (id) => {
-        console.log(id)
         return productsCart.find((item)=>{
             if(item.id !== id){
                 return false
@@ -19,7 +18,7 @@ export const CartProvider = ({children}) => {
 
     const addItem = (product, cantidad) => {
         const newItem = {...product, cantidad};
-        if(isInCart(parseInt(product.id))){
+        if(isInCart(product.id)){
             
             let index = productsCart.findIndex((index) => index.id === product.id)
             const oldQt = productsCart[index].cantidad;
@@ -28,7 +27,6 @@ export const CartProvider = ({children}) => {
             setProductsCart((prevState)=>[...prevState, newItem])
         }else{
             setProductsCart((prevState)=>[...prevState, newItem]);
-            console.log(productsCart)
         }        
     }
 

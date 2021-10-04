@@ -305,7 +305,8 @@ h2{
         background-color: white;
         color: $fondoNegro;
         border: 2px solid black; 
-        cursor: pointer; 
+        cursor: pointer;
+        transition: 300ms;
     }
     .carrito__container{
         display: flex;
