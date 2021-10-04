@@ -2,13 +2,12 @@ import * as React from 'react';
 import CartContext from '../context/CartContext';
 
 function CartProducts(){
-    const {productsCart} = React.useContext(CartContext);
+    const {productsCart, clear, removeItem} = React.useContext(CartContext);
 
     return (
         <div>
             <h2>Productos seleccionados</h2>
             <div className='carrito'>
-
             {productsCart?.map((product) => {
                     return (
                         <div className='carrito__container'>
@@ -17,10 +16,11 @@ function CartProducts(){
                             <td className='carrito__fila'>{product.precio}</td>
                             <td className='carrito__fila'>{product.cantidad}</td>
                             <td className='carrito__fila'>{product.cantidad * product.precio}</td>
-                            <td className='carrito__fila'><button className='carrito__button'>BORRAR</button></td>
+                            <td className='carrito__fila'><button className='carrito__button' onClick={()=>removeItem(product.id)}>BORRAR</button></td>
                         </div>
                     )
                 })}
+                { productsCart.length !== 0 && <button className='button__clear' onClick={()=>clear()}>BORRAR</button>}
             </div>
         </div>
     )
