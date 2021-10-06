@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import CartContext from '../../context/CartContext.js';
+import {Link} from 'react-router-dom';
 
 function CountProduct({stock, initial, item}){
     const [number, setNumber] = useState(initial);
@@ -14,7 +15,7 @@ function CountProduct({stock, initial, item}){
         }
     }
 
-    const {addItem, productsCart, terminarCompra} = React.useContext(CartContext);
+    const {addItem, productsCart} = React.useContext(CartContext);
     return(
         <div className='contador'>
             <div className='contador__botones'>
@@ -24,9 +25,7 @@ function CountProduct({stock, initial, item}){
                 <button onClick={() => sumar(number)} className='contador__button'  type='button'><ion-icon size='large' name="chevron-up-circle-outline"></ion-icon></button>
             </div>
             <button className='button__add' onClick={(e) => addItem(item, number)}>AGREGAR AL CARRITO</button>
-            { productsCart.length !== 0 &&
-                <button className='button__add' onClick={() => terminarCompra()}>FINALIZAR COMPRA</button>
-            }
+            { productsCart.length !== 0 && <Link to='/cart' className='button__add'>FINALIZAR COMPRA</Link>}
         </div>
     );
 }
