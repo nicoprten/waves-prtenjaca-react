@@ -19,15 +19,14 @@ export const CartProvider = ({children}) => {
     const addItem = (product, cantidad) => {
         const newItem = {...product, cantidad};
         if(isInCart(product.id)){
-            
-            let index = productsCart.findIndex((index) => index.id === product.id)
+            let index = productsCart.findIndex((index) => index.id === product.id);
             const oldQt = productsCart[index].cantidad;
             newItem.cantidad += oldQt;
             productsCart.splice(index, 1);
             setProductsCart((prevState)=>[...prevState, newItem])
         }else{
             setProductsCart((prevState)=>[...prevState, newItem]);
-        }        
+        }         
     }
 
     const clear = () =>{
@@ -39,7 +38,11 @@ export const CartProvider = ({children}) => {
         setProductsCart(productosNoEliminados);
     }
 
-    return <CartContext.Provider value={{productsCart, setProductsCart, addItem, clear, removeItem}}>{children}</CartContext.Provider>;
+    const terminarCompra = () =>{
+        console.log('Terminando compra...');
+    }
+
+    return <CartContext.Provider value={{productsCart, setProductsCart, addItem, clear, removeItem, terminarCompra}}>{children}</CartContext.Provider>;
 }
 
 

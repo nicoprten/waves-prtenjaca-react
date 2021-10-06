@@ -14,7 +14,7 @@ function CountProduct({stock, initial, item}){
         }
     }
 
-    const {addItem} = React.useContext(CartContext);
+    const {addItem, productsCart, terminarCompra} = React.useContext(CartContext);
     return(
         <div className='contador'>
             <div className='contador__botones'>
@@ -23,7 +23,10 @@ function CountProduct({stock, initial, item}){
                 type='number' value={number} onChange={()=>{}}/>
                 <button onClick={() => sumar(number)} className='contador__button'  type='button'><ion-icon size='large' name="chevron-up-circle-outline"></ion-icon></button>
             </div>
-            <button className='contador__add' onClick={(e) => addItem(item, number)}>AGREGAR AL CARRITO</button>
+            <button className='button__add' onClick={(e) => addItem(item, number)}>AGREGAR AL CARRITO</button>
+            { productsCart.length !== 0 &&
+                <button className='button__add' onClick={() => terminarCompra()}>FINALIZAR COMPRA</button>
+            }
         </div>
     );
 }

@@ -6,7 +6,6 @@ function ProductDetail(){
     const [product, setProduct] = useState([]);
     const {id} = useParams();
 
-
     useEffect(()=>{
         try{
             fetch(`http://localhost:3001/productos/${id}`)

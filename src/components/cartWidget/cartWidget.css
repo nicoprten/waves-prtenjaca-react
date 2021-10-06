@@ -5,6 +5,7 @@
     display: block;
     margin-left: 20px;
     text-indent: 10000px;
+    overflow: hidden;
 }
 .nav__icon__carrito:hover{
     background-image: url('./carritoblanco.png');

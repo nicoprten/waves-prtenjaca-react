@@ -1,26 +1,44 @@
 import * as React from 'react';
 import CartContext from '../context/CartContext';
+import {Link} from 'react-router-dom';
 
 function CartProducts(){
-    const {productsCart, clear, removeItem} = React.useContext(CartContext);
+    const {productsCart, clear, removeItem, terminarCompra} = React.useContext(CartContext);
+    const [precioTotal, setPrecioTotal] = React.useState(0);
 
+    React.useEffect(() => {
+        const precios = productsCart.map(product => product.precio * product.cantidad)
+        const total = precios.reduce((prevPrice, currentPrice)=> prevPrice + currentPrice, 0);
+        setPrecioTotal(total);
+    }, [productsCart]);
     return (
         <div>
             <h2>Productos seleccionados</h2>
             <div className='carrito'>
             {productsCart?.map((product) => {
                     return (
-                        <div className='carrito__container'>
-                            <td className='carrito__fila'><img className='carrito__img' alt={product.nombre} src={product.srcimg}/></td>
-                            <td className='carrito__fila'>{product.nombre}</td>
-                            <td className='carrito__fila'>{product.precio}</td>
-                            <td className='carrito__fila'>{product.cantidad}</td>
-                            <td className='carrito__fila'>{product.cantidad * product.precio}</td>
-                            <td className='carrito__fila'><button className='carrito__button' onClick={()=>removeItem(product.id)}>BORRAR</button></td>
-                        </div>
+                        <ul key={product.id} className='carrito__container'>
+                            <li className='carrito__fila'><img className='carrito__img' alt={product.nombre} src={product.srcimg}/></li>
+                            <li className='carrito__fila'>{product.nombre}</li>
+                            <li className='carrito__fila'>{product.precio}</li>
+                            <li className='carrito__fila'>{product.cantidad}</li>
+                            <li className='carrito__fila'>{product.cantidad * product.precio}</li>
+                            <li className='carrito__fila'><button className='carrito__button' onClick={()=>removeItem(product.id)}>BORRAR</button></li>
+                        </ul>
                     )
                 })}
-                { productsCart.length !== 0 && <button className='button__clear' onClick={()=>clear()}>BORRAR</button>}
+                <>
+                    { productsCart.length !== 0 ? 
+                        <>
+                            <p className='precio__total'>PRECIO TOTAL: ${precioTotal}</p>
+                            <button className='button__clear' onClick={()=>clear()}>BORRAR TODO</button>
+                            <button className='button__clear' onClick={()=>terminarCompra()}>FINALIZAR COMPRA</button>
+                        </> :
+                        <Link to ='/products' className='error__link'>
+                            Volver al listado de productos
+                        </Link>
+                    }
+                </>
             </div>
         </div>
     )
