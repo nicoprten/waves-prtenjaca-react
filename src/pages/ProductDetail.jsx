@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import {useParams} from 'react-router';
 import CountProduct from '../components/itemCount/ItemCount.js';
+import {getFirestore} from '../firebase/index.js';
 
 function ProductDetail(){
     const [product, setProduct] = useState([]);
@@ -8,9 +9,23 @@ function ProductDetail(){
 
     useEffect(()=>{
         try{
-            fetch(`http://localhost:3001/productos/${id}`)
-            .then(response => response.json())
-            .then(data => setProduct(data));
+            // fetch(`http://localhost:3001/productos/${id}`)
+            // .then(response => response.json())
+            // .then(data => setProduct(data));
+            const db = getFirestore();
+            const productosCollection = db.collection('productos');
+            const producto = productosCollection.doc(id);
+            producto.get()
+            .then((doc) => {
+                if(!doc.exists){
+                    console.log('No existe el producto seleccionado');
+                }else{
+                    setProduct(({id: doc.id, ...doc.data()}));
+                }
+            })
+            .catch(err => console.log(err))
+            .finally(()=> {})
+
         }
         catch(error){
             console.log(error.message);
@@ -24,7 +39,7 @@ function ProductDetail(){
             <div className='total__detalles'>
                 <ul className='detalles'>
                     {
-                    product.id !== parseInt(id) ? <p className='detalles__error'>No seleccionó ningún detalle para ver...</p> : 
+                    product.id !== id ? <p className='detalles__error'>No seleccionó ningún detalle para ver...</p> : 
                     <div className='detalles__producto'>
                         <li className='detalles__title'>{product?.nombre}</li>
                         <li><img className='detalles__img' src={product?.srcimg} alt={product.nombre}/></li>

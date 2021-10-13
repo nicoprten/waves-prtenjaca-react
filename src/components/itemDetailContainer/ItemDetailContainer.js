@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {useParams} from 'react-router';
+import {getFirestore} from '../../firebase/index.js';
 
 function ItemDetailContainer(){
     const [productos, setProductos] = useState([]);
@@ -8,23 +9,43 @@ function ItemDetailContainer(){
     const {categoryId} = useParams();
 
     useEffect(() => {
-        
         setCargando(true);
-        const link = `http://localhost:3001/productos/`;
-        setTimeout(()=>{
-            fetch(link)
-            .then(response =>response.json())
-            .then((data) =>{
+        // const link = `http://localhost:3001/productos/`;
+        // setTimeout(()=>{
+        //     fetch(link)
+        //     .then(response =>response.json())
+        //     .then((data) =>{
+        //         if(categoryId !== undefined){
+        //             setProductos(data.filter(producto => producto.categoria === categoryId));
+        //         }else{
+        //             setProductos(data);
+        //         }
+        //     } )
+        //     .finally(()=> {
+        //         setCargando(false)
+        //     });
+        // }, 400)
+
+        const db = getFirestore();
+        const productosCollection = db.collection('productos');
+        productosCollection.get()
+        .then((querySnapshot)=>{
+            if(querySnapshot.empty){
+                console.log('No hay productos');
+            }else{
                 if(categoryId !== undefined){
-                    setProductos(data.filter(producto => producto.categoria === categoryId));
+                    const productosFiltrados = querySnapshot.docs.map((doc)=>({id: doc.id, ...doc.data()})).filter(producto => producto.categoria === categoryId);
+                    setProductos(productosFiltrados);
                 }else{
-                    setProductos(data);
+                    setProductos(querySnapshot.docs.map((doc)=>({id: doc.id, ...doc.data()})));
                 }
-            } )
-            .finally(()=> {
-                setCargando(false)
-            });
-        }, 400)
+            }
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+        .finally(()=>{setCargando(false)});
+
     }, [categoryId]);
     return(
     <>
