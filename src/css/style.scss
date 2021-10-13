@@ -72,6 +72,25 @@ h2{
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        .nav__item:nth-child(2){
+            position: relative;
+            .nav__submenu{
+                list-style-type: none;
+                position: absolute;
+                background-color: $fondoNegro;
+                padding: 10px;
+                left: 0;
+                display: none;
+                z-index: 4;
+                .submenu__item{
+                    padding: 10px 0;
+                }
+            }
+        }
+        .nav__item:nth-child(2):hover .nav__submenu{
+            display: block;
+            transition: 0.3s;
+        }
         .nav__item{
             width: 100px;
             text-align: center;
@@ -161,10 +180,11 @@ h2{
 
 .listado{
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 20rem);
+    grid-gap: 10px;
     justify-content: center;
-    gap: 20px;
+    margin: 100px 100px 200px 100px;
     .listado__productos{
         text-align: center;
         display: flex;
@@ -328,30 +348,39 @@ h2{
     color: white;
     display: flex;
     flex-direction: column;
+    margin: 100px 100px 200px 100px;
+    box-shadow: 0 0 10px black;
     .precio__total{
         text-align: center;
         margin: 20px 0;
         font-weight: bold;
     }
-    .button__clear{
-        padding: 10px;
-        background-color:$fondoNegro;
-        color: white;
-        border: 2px solid white;
-    }
-    .button__clear:hover{
-        background-color: white;
-        color: $fondoNegro;
-        border: 2px solid black; 
-        cursor: pointer;
-        transition: 300ms;
+    .carrito__buttons{
+        background-color:red;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .button__clear{
+            padding: 10px;
+            background-color:$fondoNegro;
+            color: white;
+            border: 2px solid white;
+            flex: 1;
+        }
+        .button__clear:hover{
+            background-color: white;
+            color: $fondoNegro;
+            border: 2px solid black; 
+            cursor: pointer;
+            transition: 300ms;
+        }
     }
     .carrito__container{
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         background-color: white;
         color: $fondoNegro;
-        height: 200px;
         margin: 10px 0;
         overflow: hidden;
         text-align: center;
@@ -375,6 +404,22 @@ h2{
                 cursor: pointer;
                 border: 2px solid black;
                 transition: 0.2s;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 940px) {
+    .carrito__container{
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 480px) {
+    .carrito__container{
+        .carrito__fila:first-child{
+            padding: 0;
+            .carrito__img{
+                width: 100%;
             }
         }
     }

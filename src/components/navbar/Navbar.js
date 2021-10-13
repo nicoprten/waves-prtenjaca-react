@@ -14,16 +14,19 @@ const Navbar = () => {
                 </li>
                 <li className='nav__item'>
                     <Link to='/products' className='nav__link'>Productos</Link>
+                    <ul className='nav__submenu'>
+                        <li className='submenu__item'>
+                            <Link to='/category/remeras' className='nav__link'>Remeras</Link>
+                        </li>
+                        <li className='submenu__item'>
+                            <Link to='/category/abrigos' className='nav__link'>Abrigos</Link>
+                        </li>
+                        <li className='submenu__item'>
+                            <Link to='/category/pantalones' className='nav__link'>Pantalones</Link>
+                        </li>
+                    </ul>
                 </li>
-                <li className='nav__item'>
-                    <Link to='/category/remeras' className='nav__link'>Remeras</Link>
-                </li>
-                <li className='nav__item'>
-                    <Link to='/category/abrigos' className='nav__link'>Abrigos</Link>
-                </li>
-                <li className='nav__item'>
-                    <Link to='/category/pantalones' className='nav__link'>Pantalones</Link>
-                </li>
+
                 <li className='nav__item'>
                     <CartWidget/>
                 </li>

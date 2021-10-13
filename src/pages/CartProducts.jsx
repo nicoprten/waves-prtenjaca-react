@@ -31,8 +31,10 @@ function CartProducts(){
                     { productsCart.length !== 0 ? 
                         <>
                             <p className='precio__total'>PRECIO TOTAL: ${precioTotal}</p>
-                            <button className='button__clear' onClick={()=>clear()}>BORRAR TODO</button>
-                            <button className='button__clear' onClick={()=>terminarCompra()}>FINALIZAR COMPRA</button>
+                            <div className='carrito__buttons'>
+                                <button className='button__clear' onClick={()=>clear()}>VACIAR CARRITO</button>
+                                <button className='button__clear' onClick={()=>terminarCompra()}>FINALIZAR COMPRA</button>
+                            </div>
                         </> :
                         <Link to ='/products' className='error__link'>
                             Volver al listado de productos
