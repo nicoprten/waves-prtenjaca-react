@@ -27,7 +27,7 @@ function ResumenCompra(){
             {productsCart.length > 0 && <h2 className='detalle__title'>PRODUCTOS COMPRADOS</h2>}
             <ul className='detalle__lista'>
                 {productsCart?.map((producto)=>{
-                    return <li className='detalle__item'>{producto.nombre} - {producto.cantidad}u</li>
+                    return <li key={producto.id} className='detalle__item'>{producto.nombre} - {producto.cantidad}u</li>
                 })}
             </ul>
             <Link to ='/products' className='error__link'>

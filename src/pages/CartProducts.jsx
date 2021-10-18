@@ -7,7 +7,7 @@ function CartProducts(){
     
     React.useEffect(() =>{
         enviarPrecioTotal();
-    }, [productsCart])
+    }, [enviarPrecioTotal])
 
     return (
         <div>
