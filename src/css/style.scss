@@ -426,3 +426,49 @@ h2{
         }
     }
 }
+
+// FORMULARIO DE COMPRA
+
+.formcompra{
+    background-color: $fondoNegro;
+    border-radius: .5rem;
+    padding: 2rem;
+    margin: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 0 10px $fondoNegro;
+    .formcompra__input{
+        outline: none;
+        border: 2px solid white;
+        line-height: 1.5em;
+        font: bold 1.2em 'Helvetica';
+    }
+}
+
+// RESUMEN DE COMPRA
+
+.detalle{
+    background-color: $fondoNegro;
+    color: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    .detalle__lista{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+        .detalle__item{
+            background-color: white;
+            color: $fondoNegro;
+            font-weight: bold;
+            padding: 1rem;
+            .detalle__submenu{
+                list-style-type: none;
+            }
+        }
+    }
+}

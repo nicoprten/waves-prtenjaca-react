@@ -4,7 +4,14 @@ const CartContext = React.createContext([]);
 
 export const CartProvider = ({children}) => {
     const [productsCart, setProductsCart] = React.useState([]);
+    const [precioTotal, setPrecioTotal] = React.useState(0);
+    const [user, setUser] = React.useState();
 
+    const enviarPrecioTotal = () => {
+        const precios = productsCart.map(product => product.precio * product.cantidad)
+        const total = precios.reduce((prevPrice, currentPrice)=> prevPrice + currentPrice, 0);
+        setPrecioTotal(total);
+    }
     const isInCart = (id) => {
         return productsCart.find((item)=>{
             if(item.id !== id){
@@ -38,11 +45,18 @@ export const CartProvider = ({children}) => {
         setProductsCart(productosNoEliminados);
     }
 
-    const terminarCompra = () =>{
-        console.log('Terminando compra...');
+    const enviarDatosUser = () =>{
+        let user = {
+            nombre : document.getElementById('nombre').value,
+            apellido : document.getElementById('apellido').value,
+            mail : document.getElementById('mail').value,
+            postal : document.getElementById('postal').value,
+        }
+        console.log(user);
+        setUser(user);
     }
 
-    return <CartContext.Provider value={{productsCart, setProductsCart, addItem, clear, removeItem, terminarCompra}}>{children}</CartContext.Provider>;
+    return <CartContext.Provider value={{productsCart, setProductsCart, addItem, clear, removeItem, enviarDatosUser, user, precioTotal, enviarPrecioTotal}}>{children}</CartContext.Provider>;
 }
 
 

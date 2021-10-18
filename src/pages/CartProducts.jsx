@@ -3,14 +3,12 @@ import CartContext from '../context/CartContext';
 import {Link} from 'react-router-dom';
 
 function CartProducts(){
-    const {productsCart, clear, removeItem, terminarCompra} = React.useContext(CartContext);
-    const [precioTotal, setPrecioTotal] = React.useState(0);
+    const {productsCart, clear, removeItem, precioTotal, enviarPrecioTotal} = React.useContext(CartContext);
+    
+    React.useEffect(() =>{
+        enviarPrecioTotal();
+    }, [productsCart])
 
-    React.useEffect(() => {
-        const precios = productsCart.map(product => product.precio * product.cantidad)
-        const total = precios.reduce((prevPrice, currentPrice)=> prevPrice + currentPrice, 0);
-        setPrecioTotal(total);
-    }, [productsCart]);
     return (
         <div>
             <h2>Productos seleccionados</h2>
@@ -33,7 +31,9 @@ function CartProducts(){
                             <p className='precio__total'>PRECIO TOTAL: ${precioTotal}</p>
                             <div className='carrito__buttons'>
                                 <button className='button__clear' onClick={()=>clear()}>VACIAR CARRITO</button>
-                                <button className='button__clear' onClick={()=>terminarCompra()}>FINALIZAR COMPRA</button>
+                                <Link to ='/formcompra'>
+                                    <button className='button__clear'>FINALIZAR COMPRA</button>
+                                </Link>
                             </div>
                         </> :
                         <Link to ='/products' className='error__link'>
