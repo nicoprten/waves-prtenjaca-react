@@ -5,7 +5,6 @@ function Item(producto){
     const [items, setItems] = useState([]);
     const [cargando, setCargando] = useState(false);
     useEffect(() =>{
-        // console.log(producto);
         setCargando(true);
         const agarrarProductos = (producto) => {
             return new Promise((resolve) =>{
@@ -28,10 +27,6 @@ function Item(producto){
             setCargando(false);
         });
 
-        // const agarrarProductosAsync = async (producto) => {
-        //     const productos = await agarrarProductos(producto);
-        //     // console.log(productos);
-        // }
     }, [producto]);
 
     return(

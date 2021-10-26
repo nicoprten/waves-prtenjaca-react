@@ -23,7 +23,6 @@ function ItemList(){
             desc: 'Preparate para el frio con el mejor gorro.'
         }
     ];
-    // console.log(productos)
 
     
 

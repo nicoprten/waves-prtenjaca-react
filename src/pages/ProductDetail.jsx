@@ -9,9 +9,6 @@ function ProductDetail(){
 
     useEffect(()=>{
         try{
-            // fetch(`http://localhost:3001/productos/${id}`)
-            // .then(response => response.json())
-            // .then(data => setProduct(data));
             const db = getFirestore();
             const productosCollection = db.collection('productos');
             const producto = productosCollection.doc(id);

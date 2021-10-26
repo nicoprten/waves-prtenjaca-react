@@ -10,22 +10,6 @@ function ItemDetailContainer(){
 
     useEffect(() => {
         setCargando(true);
-        // const link = `http://localhost:3001/productos/`;
-        // setTimeout(()=>{
-        //     fetch(link)
-        //     .then(response =>response.json())
-        //     .then((data) =>{
-        //         if(categoryId !== undefined){
-        //             setProductos(data.filter(producto => producto.categoria === categoryId));
-        //         }else{
-        //             setProductos(data);
-        //         }
-        //     } )
-        //     .finally(()=> {
-        //         setCargando(false)
-        //     });
-        // }, 400)
-
         const db = getFirestore();
         const productosCollection = db.collection('productos');
         productosCollection.get()
