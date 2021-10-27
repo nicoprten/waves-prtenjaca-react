@@ -489,6 +489,12 @@ h2{
         line-height: 1.5em;
         font: bold 1.2em 'Helvetica';
     }
+    .formcompra__input:last-child{
+        border-radius: 0 20px 20px 0;
+    }
+    .formcompra__input:last-child:hover{
+        transform: translate(10px);
+    }
 }
 
 // RESUMEN DE COMPRA
