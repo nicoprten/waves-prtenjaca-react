@@ -9,9 +9,8 @@ function FormCompra (){
             <h2>Formulario de compra</h2>
             <form className='formcompra'>
                 <input id='nombre' className='formcompra__input' type='text' name='nombre' placeholder='Ingrese su nombre'/>
-                <input id='apellido' className='formcompra__input' type='text' name='apellido' placeholder='Ingrese su apellido'/>
                 <input id='mail' className='formcompra__input' type='mail' name='mail' placeholder='Ingrese su mail'/>
-                <input id='postal' className='formcompra__input' type='number' name='postal' placeholder='Ingrese su código postal'/>
+                <input id='cel' className='formcompra__input' type='number' name='cel' placeholder='Ingrese su celular'/>
                 <Link to='/resumenCompra'>
                     <button className='formcompra__input button__add' onClick={()=>{enviarDatosUser()}}>FINALIZAR COMPRA</button>
                 </Link>

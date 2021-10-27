@@ -5,16 +5,18 @@ import {getFirestore} from '../firebase/index.js';
 
 function ResumenCompra(){
     const {productsCart, user, precioTotal} = React.useContext(CartContext);
-    const newOrden = {productsCart, user, precioTotal};
-    console.log(newOrden);
+    const [id, setId] = React.useState('');
+    
     React.useEffect(() => {
+        const newOrden = {productsCart, user, precioTotal};
+        console.log(newOrden);
         const db = getFirestore();
         const orderCollection = db.collection('orden');
         orderCollection
         .add(newOrden)
-        .then((docRef) =>console.log('orden finalizada:', docRef.id))
+        .then((docRef) =>setId(docRef.id))
         .catch((err) =>console.log(err));
-    })
+    }, [precioTotal, productsCart, user])
     return(
         user ? 
         <div className='detalle'>
@@ -29,6 +31,7 @@ function ResumenCompra(){
                 {productsCart?.map((producto)=>{
                     return <li key={producto.id} className='detalle__item'>{producto.nombre} - {producto.cantidad}u</li>
                 })}
+                <li className='detalle__item'>ID COMPRA: {id}</li>
             </ul>
             <Link to ='/products' className='error__link'>
                 Volver al listado de productos

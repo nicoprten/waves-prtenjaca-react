@@ -32,20 +32,19 @@ function ProductDetail(){
 
     return(
         <>
-            {/* {cantProd !== 0 && <p className='cargando'>Agregaste {cantProd} {product.nombre} al carrito. <Link to='/cart' className='nav__link'> Ir al carrito. </Link></p>} */}
             <div className='total__detalles'>
                 <ul className='detalles'>
                     {
                     product.id !== id ? <p className='detalles__error'>No seleccionó ningún detalle para ver...</p> : 
                     <div className='detalles__producto'>
-                        <li className='detalles__title'>{product?.nombre}</li>
+                        <li className='detalles__title'>{product?.nombre.toUpperCase()}</li>
                         <li><img className='detalles__img' src={product?.srcimg} alt={product.nombre}/></li>
                         <li className='detalles__desc'>{product?.desc}</li>
                         <li className='detalles__precio'>${product?.precio}</li>
+                        <li><CountProduct stock={8} initial={1} item={product}/></li>
                     </div>
                     }
                 </ul>
-                <CountProduct stock={8} initial={1} item={product}/>
             </div>
         </>
     )

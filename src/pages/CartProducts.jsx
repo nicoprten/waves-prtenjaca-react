@@ -31,8 +31,8 @@ function CartProducts(){
                             <p className='precio__total'>PRECIO TOTAL: ${precioTotal}</p>
                             <div className='carrito__buttons'>
                                 <button className='button__clear' onClick={()=>clear()}>VACIAR CARRITO</button>
-                                <Link to ='/formcompra'>
-                                    <button className='button__clear'>FINALIZAR COMPRA</button>
+                                <Link className='button__clear' to ='/formcompra'>
+                                    FINALIZAR COMPRA
                                 </Link>
                             </div>
                         </> :

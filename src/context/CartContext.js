@@ -48,11 +48,9 @@ export const CartProvider = ({children}) => {
     const enviarDatosUser = () =>{
         let user = {
             nombre : document.getElementById('nombre').value,
-            apellido : document.getElementById('apellido').value,
             mail : document.getElementById('mail').value,
-            postal : document.getElementById('postal').value,
+            cel : document.getElementById('cel').value
         }
-        console.log(user);
         setUser(user);
     }
 

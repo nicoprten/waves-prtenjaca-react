@@ -39,18 +39,20 @@ function ItemDetailContainer(){
             {productos?.map((producto) =>{
                 return (
                     <div key={producto.id} className='listado__productos'>
-                        <li className='listado__title'>{producto.nombre}</li>
                         <li>
                             <Link to={`/products/${producto.id}`}>
                                 <img className='listado__img' src={producto.srcimg} alt={producto.nombre}/>
                             </Link>
                         </li>
-                        <li className='listado__precio'>${producto.precio}</li>
-                        <li>
-                            <Link to={`/products/${producto.id}`} className='listado__button'>
-                                <span>VER MÁS DETALLES</span>
-                            </Link>
-                        </li>
+                        <div className='listado__inf'>
+                            <li className='listado__title'>{producto.nombre.toUpperCase()}</li>
+                            <li className='listado__precio'>${producto.precio}</li>
+                            <li>
+                                <Link to={`/products/${producto.id}`} className='listado__button'>
+                                    <span>AGREGAR AL CARRITO</span>
+                                </Link>
+                            </li>
+                        </div>
                     </div>
                 );
             })}
