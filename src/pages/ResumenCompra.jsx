@@ -1,22 +1,29 @@
 import * as React from 'react';
 import CartContext from '../context/CartContext';
-import {Link} from 'react-router-dom';
-import {getFirestore} from '../firebase/index.js';
+import { Link } from 'react-router-dom';
+import { db } from '../firebase/index.js';
+import { collection, addDoc } from "firebase/firestore"; 
 
 function ResumenCompra(){
-    const {productsCart, user, precioTotal} = React.useContext(CartContext);
+    const {productsCart, user, precioTotal, clear} = React.useContext(CartContext);
     const [id, setId] = React.useState('');
     
     React.useEffect(() => {
         const newOrden = {productsCart, user, precioTotal};
         console.log(newOrden);
-        const db = getFirestore();
-        const orderCollection = db.collection('orden');
-        orderCollection
-        .add(newOrden)
-        .then((docRef) =>setId(docRef.id))
-        .catch((err) =>console.log(err));
-    }, [precioTotal, productsCart, user])
+        const orderCollection = collection(db, 'orden');
+        console.log(orderCollection)
+        const docRef = addDoc(collection(db, "orden"), {
+            ...newOrden
+        });
+        console.log(docRef.id)
+        // setId(docRef.id)
+        clear();
+        // orderCollection
+        // .add(newOrden)
+        // .then((docRef) =>setId(docRef.id))
+        // .catch((err) =>console.log(err));
+    }, [])
     return(
         user ? 
         <div className='detalle'>
@@ -31,7 +38,7 @@ function ResumenCompra(){
                 {productsCart?.map((producto)=>{
                     return <li key={producto.id} className='detalle__item'>{producto.nombre} - {producto.cantidad}u</li>
                 })}
-                <li className='detalle__item'>ID COMPRA: {id}</li>
+                {/* <li className='detalle__item'>ID COMPRA: {id}</li> */}
             </ul>
             <Link to ='/products' className='error__link'>
                 Volver al listado de productos

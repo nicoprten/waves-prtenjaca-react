@@ -1,35 +1,33 @@
 import {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {useParams} from 'react-router';
-import {getFirestore} from '../../firebase/index.js';
+import { db } from './../../firebase/index';
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 function ItemDetailContainer(){
     const [productos, setProductos] = useState([]);
-    const [cargando, setCargando] = useState(false);
+    const [cargando, setCargando] = useState(true);
     const {categoryId} = useParams();
-
+    // console.log(categoryId)
+    const callProducts = async function(category){
+        let q;
+        if(category){
+            q = query(collection(db, "productos"), where("categoria", "==", category));
+        }else{
+            q = collection(db, "productos");
+        }
+        const querySnapshot = await getDocs(q);
+        let productosView = [];
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+            productosView.push({...doc.data(), id: doc.id});
+        });
+        setProductos(productosView)
+        setCargando(false);
+    }
     useEffect(() => {
-        setCargando(true);
-        const db = getFirestore();
-        const productosCollection = db.collection('productos');
-        productosCollection.get()
-        .then((querySnapshot)=>{
-            if(querySnapshot.empty){
-                console.log('No hay productos');
-            }else{
-                if(categoryId !== undefined){
-                    const productosFiltrados = querySnapshot.docs.map((doc)=>({id: doc.id, ...doc.data()})).filter(producto => producto.categoria === categoryId);
-                    setProductos(productosFiltrados);
-                }else{
-                    setProductos(querySnapshot.docs.map((doc)=>({id: doc.id, ...doc.data()})));
-                }
-            }
-        })
-        .catch((error)=>{
-            console.log(error);
-        })
-        .finally(()=>{setCargando(false)});
-
+        callProducts(categoryId);
     }, [categoryId]);
     return(
     <>
@@ -37,8 +35,10 @@ function ItemDetailContainer(){
         {(cargando) && <p className='cargando'>Cargando listado de productos.</p>}
         <ul className='listado'>
             {productos?.map((producto) =>{
+                // {console.log(producto)}
                 return (
                     <div key={producto.id} className='listado__productos'>
+                        {console.log(producto)}
                         <li>
                             <Link to={`/products/${producto.id}`}>
                                 <img className='listado__img' src={producto.srcimg} alt={producto.nombre}/>
